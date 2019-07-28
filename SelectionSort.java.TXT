@@ -1,0 +1,126 @@
+/******************************************************************************
+
+   
+     It is a selection sort algorithm implementation in @java where we use @Scanner class to take
+ 
+    input size of the array from the user and then Element of the Array and printed
+ 
+    after sorting
+ 
+        
+       
+
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Selection_Sort
+
+{
+  
+//swaping function of two variables
+ 
+ static void swap (int smallest, int j, int[]a)
+
+  {
+    
+      int temp;
+
+      temp = a[smallest];
+
+      a[smallest] = a[j];
+
+      a[j] = temp;
+
+      return;
+
+
+  }
+
+  //selection sort function
+ 
+  static int[] selection_sort (int[]a, int n)
+
+  {
+
+    int smallest = 0;
+
+    for (int j = 0; j < n - 1; j++)
+
+      {
+
+	smallest = j;
+
+	for (int i = j + 1; i < n; i++)
+
+	  {
+
+	    if (a[i] < a[smallest])
+
+	      smallest = i;
+
+	  }
+
+	//calling swap function to swap the variables in array
+
+	swap (smallest, j, a);
+
+
+      }
+
+    return a;
+
+  }
+
+   // main Function 
+  public static void main (String[]args)
+
+  {
+				
+     //n is size of the array
+
+ 
+    int n;
+
+
+    //Scanner Object to take inputr from the user
+
+    Scanner sc = new Scanner (System.in);
+
+    System.out.println ("Enter the size of array:-");
+
+    n = sc.nextInt ();
+
+    //declare an array of size n
+ 
+    int a[] = new int[n];
+
+    //taking input from the user in array
+ 
+    for (int i = 0; i < n; i++)
+
+      {
+	a[i] = sc.nextInt ();
+
+      }
+ 
+   //calling the function to sort the array 
+
+    a = selection_sort (a, n);
+
+
+    //print the Sorted Array
+
+    System.out.println ("Sorted List By Selection Sort :");
+
+    for (int i = 0; i < n; i++)
+
+      {
+	System.out.print (a[i] + " ");
+
+      }
+
+  }
+
+}
